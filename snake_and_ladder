@@ -1,7 +1,13 @@
 import random
 def roll_die(position):
     """
-    
+    Randomly generetes a number between 1-6 to represent a die
+
+    Parameters:
+    The current position of the player
+
+    Returns:
+    Updated position of the player    
     """
     die_choice += random.choice([1,2,3,4,5,6])
     
