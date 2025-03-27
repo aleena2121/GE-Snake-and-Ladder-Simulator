@@ -41,10 +41,12 @@ player1_position = 0
 player2_position = 0
 while player1_position != 100 and player2_position != 100:
     player1_position = roll_die(player1_position)
+    print("Player 1 is at position : " + str(player1_position))
     if player1_position == 100:
         print("Player 1 wins!")
         break
     player2_position = roll_die(player2_position)
+    print("Player 2 is at position : " + str(player2_position))
     if player2_position == 100:
         print("Player 2 wins!")
         break
