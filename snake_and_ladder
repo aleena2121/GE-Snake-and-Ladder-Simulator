@@ -1,5 +1,5 @@
 import random
-def roll_die(position):
+def roll_die(position,no_of_die_rolls):
     """
     Randomly generetes a number between 1-6 to represent a die
 
@@ -9,8 +9,9 @@ def roll_die(position):
     Returns:
     Updated position of the player    
     """
+    no_of_die_rolls += 1
     die_choice = random.choice([1,2,3,4,5,6])
-    return(check_option(die_choice,position))
+    return(check_option(die_choice,position),no_of_die_rolls)
 
 def check_option(die_choice,position):
     """
@@ -37,16 +38,18 @@ def check_option(die_choice,position):
         else:
             return(position)
     
-player1_position = 0
-player2_position = 0
+player1_position, player2_position = 0, 0
+player1_die_rolls, player2_die_rolls = 0, 0
 while player1_position != 100 and player2_position != 100:
-    player1_position = roll_die(player1_position)
+    player1_position,player1_die_rolls = roll_die(player1_position, player1_die_rolls)
     print("Player 1 is at position : " + str(player1_position))
     if player1_position == 100:
         print("Player 1 wins!")
+        print("No of die rolls taken = " + str(player1_die_rolls))
         break
-    player2_position = roll_die(player2_position)
+    player2_position, player2_die_rolls = roll_die(player2_position, player2_die_rolls)
     print("Player 2 is at position : " + str(player2_position))
     if player2_position == 100:
         print("Player 2 wins!")
+        print("No of die rolls taken = " + str(player2_die_rolls))
         break
