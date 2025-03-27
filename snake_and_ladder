@@ -9,7 +9,30 @@ def roll_die(position):
     Returns:
     Updated position of the player    
     """
-    die_choice += random.choice([1,2,3,4,5,6])
+    die_choice = random.choice([1,2,3,4,5,6])
+    return(check_option(die_choice,position))
+
+def check_option(die_choice,position):
+    """
+    Randomly generates options for player and updates the position- [No movement, Snake, Ladder]
+
+    Parameters:
+    die_choice: the randomly generated die number for the player
+    position: current position of the player
+
+    Returns:
+    Updated position of the player
+    """
+    option = random.choice(["No","Snake","Ladder"])
+    if option == "No":
+        return(position)
+    elif option == "Snake":
+        if position - die_choice > 0:
+            return(position - die_choice)
+        else:
+            return(0)
+    elif option == "Ladder":
+        return(position + die_choice)
     
 player1_position = 0
 player2_position = 0
