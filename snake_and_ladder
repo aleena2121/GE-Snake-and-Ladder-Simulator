@@ -32,7 +32,10 @@ def check_option(die_choice,position):
         else:
             return(0)
     elif option == "Ladder":
-        return(position + die_choice)
+        if position + die_choice <=100:
+            return(position + die_choice)
+        else:
+            return(position)
     
 player1_position = 0
 player2_position = 0
